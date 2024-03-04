@@ -36,7 +36,7 @@ contract HookEnabledSwapRouter is PoolTestBase {
         bytes memory hookData
     ) external payable returns (BalanceDelta delta) {
         delta = abi.decode(
-            manager.lock(address(this), abi.encode(CallbackData(msg.sender, testSettings, key, params, hookData))),
+            manager.lock(abi.encode(CallbackData(msg.sender, testSettings, key, params, hookData))),
             (BalanceDelta)
         );
 
