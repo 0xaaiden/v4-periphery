@@ -252,7 +252,7 @@ contract FullRange is BaseHook, ILockCallback {
         returns (BalanceDelta delta)
     {
         delta = abi.decode(
-            poolManager.lock(address(this), abi.encode(CallbackData(msg.sender, key, params))), (BalanceDelta)
+            poolManager.lock(abi.encode(CallbackData(msg.sender, key, params))), (BalanceDelta)
         );
     }
 
